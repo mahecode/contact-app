@@ -1,26 +1,30 @@
-<nav class="nav-extended">
+<nav>
     <div class="nav-wrapper">
       <a href="/home" class="brand-logo">ContactApp</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         {{# if login }}
-          <li><a class="logout" href="/logout">Logout</a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
+            <li><a href="/logout">Logout</a></li>
         {{ else }}
-          <li><a href="/">Login</a></li>
-          <li><a href="/register">Sign up</a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-        {{/if}} 
+           <li><a href="/">Login</a></li>
+           <li><a href="/register">Sign up</a></li>
+        {{/if}}
       </ul>
-    </div>
-    {{# if login }}
+      {{# if login }}
       <div class="nav-content">
         <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal" href="/add">
           <i class="material-icons">add</i>
         </a>
       </div>
     {{/if}}
-</nav>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+     {{# if login }}
+            <li><a href="/logout">Logout</a></li>
+        {{ else }}
+           <li><a href="/">Login</a></li>
+           <li><a href="/register">Sign up</a></li>
+        {{/if}}
+  </ul>
