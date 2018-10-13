@@ -1,0 +1,26 @@
+<nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a href="/home" class="brand-logo">ContactApp</a>
+      <ul class="right hide-on-med-and-down">
+        {{# if login }}
+          <li><a class="logout" href="/logout">Logout</a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+        {{ else }}
+          <li><a href="/">Login</a></li>
+          <li><a href="/register">Sign up</a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+          <li><a href=""></a></li>
+        {{/if}} 
+      </ul>
+    </div>
+    {{# if login }}
+      <div class="nav-content">
+        <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal" href="/add">
+          <i class="material-icons">add</i>
+        </a>
+      </div>
+    {{/if}}
+</nav>

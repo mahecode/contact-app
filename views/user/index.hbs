@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="col s6">
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone Number</th>
+        </tr>
+        <tbody>
+            {{# each contacts }}
+            <tr>
+              <td><strong>{{ this.name }}</strong></td>
+              <td><strong>{{ this.mo_no }}</strong></td>
+              <td><a class="waves-effect waves-light btn btn-small " href="/edit/{{ this._id }}">Edit</a> <a class="delete-contact waves-effect waves-light btn btn-small red darken-2" href="#" data-id="{{ this._id }}">Delete</a> </td>
+            </tr>
+            {{/each}}
+        </tbody>
+      </thead>
+    </table>
+   </div>
+ </div>
+</div>

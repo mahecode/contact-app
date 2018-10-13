@@ -1,0 +1,22 @@
+<div class="container">
+
+  <div class="row">
+     <form class="col s12" action="/edit/{{ doc._id }}" method="post">
+       <div class="row">
+         <div class="input-field col s6">
+           <i class="material-icons prefix">account_circle</i>
+           <input id="icon_prefix" type="text" class="validate" value="{{ doc.name }}" name="name">
+           <label for="icon_prefix">First Name</label>
+         </div>
+         <div class="input-field col s6">
+           <i class="material-icons prefix">phone</i>
+           <input id="icon_telephone" type="tel" class="validate" value="{{ doc.mo_no }}" name="number">
+           <label for="icon_telephone">Telephone</label>
+         </div>
+         <input type="hidden" name="_csrf" value="{{ token }}">
+         <button class="btn waves-effect waves-light" type="submit">Done</button>
+         <button class="btn waves-effect waves-light red darken-2" type="submit">Cancel</button>
+       </div>
+     </form>
+   </div>
+</div>
