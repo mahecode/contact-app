@@ -8,7 +8,7 @@ var passport = require('passport');
 
 router.use(csrfProtection);
 //mongoose connect
-mongoose.connect('mongodb://localhost:27017/contact-app');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/contact-app');
 
 
 router.get('/logout', (req, res, next)=>{

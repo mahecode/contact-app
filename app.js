@@ -16,7 +16,7 @@ var indexRouter = require('./routes/index');
 var app = express();
 
 //mongoose connect
-mongoose.connect('mongodb://localhost:27017/contact-app');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/contact-app');
 require('./config/passport');
 
 // view engine setup
