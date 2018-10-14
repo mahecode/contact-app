@@ -1,4 +1,3 @@
-
 $(document).ready(()=>{
     $('.delete-contact').on('click', (e) =>{
       $target = $(e.target);
@@ -13,7 +12,7 @@ $(document).ready(()=>{
         error: (error)=>{
           console.log(error);
         }
-      })
+      });      
     })
 });
 

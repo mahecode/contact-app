@@ -11,7 +11,7 @@
             <tr>
               <td><strong>{{ this.name }}</strong></td>
               <td><strong>{{ this.mo_no }}</strong></td>
-              <td><a class="waves-effect waves-light btn btn-small " href="/edit/{{ this._id }}">Edit</a> <a class="delete-contact waves-effect waves-light btn btn-small red darken-2" href="#" data-id="{{ this._id }}">Delete</a> </td>
+              <td><a class="btn-floating btn-medium cyan" href="/edit/{{ this._id }}"><i class="material-icons">edit</i></a> <button class="delete-contact btn-floating btn-medium red" data-id="{{ this._id }}"><i class="material-icons">cancel</i></button></td>
             </tr>
             {{/each}}
         </tbody>

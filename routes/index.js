@@ -5,6 +5,7 @@ var Contact = require('../models/contacts');
 var csrf = require('csurf');
 var csrfProtection = csrf();
 var passport = require('passport');
+var ObjectID = require('mongodb');
 
 router.use(csrfProtection);
 //mongoose connect
@@ -51,14 +52,6 @@ router.get('/home', isloggedIn, (req, res, next)=>{
   }, (e)=>{
     res.status(400).send();
   });
-  // Contact.find((err, contacts)=>{
-  //   if(err){
-  //     return console.log(err);
-  //   }
-  //   res.render('user/index', {
-  //     contacts: contacts
-  //   })
-  // });
 });
 
 
@@ -109,15 +102,22 @@ router.post('/edit/:id', isloggedIn, (req, res, next) =>{
   });
 });
 
-router.delete('/delete/:id', isloggedIn, (req, res, next) =>{
+router.delete('/delete/:id', isloggedIn , (req, res, next)=>{
   const query = {_id: req.params.id}
-  console.log(query);
-  Contact.deleteOne(query, (err)=>{
-    if(err){
-      return console.log(err);
+  if(!ObjectID.isValid(query)){
+    return res.status(400).send();
+  }
+  Contact.findOneAndRemove({
+    _id: query,
+    _creator: req.user._id
+  }).then((contact)=>{
+    if(!contact){
+      return res.status(400).send();
     }
-    console.log("contact removed...");
+    console.log('contact removed');
     res.send(200);
+  }).catch((e)=>{
+    res.status(400).send();
   });
 });
 
