@@ -3,10 +3,9 @@
   <h4>Login</h4>
    {{# if hasErrors }}
       {{# each messages }}
-        <h6>{{ this }}</h6>
+        <div class="error z-depth-3">{{ this }} <a class="close-alert right"><i class="material-icons">cancel</i></a></div>
       {{/each}}
     {{/if}}
-    <br>
    <form class="col s6" id="login" action="/user/login" method="post">
      <div class="row">
        <div class="input-field col s12">
@@ -25,4 +24,5 @@
      <button class="btn waves-effect waves-light" type="submit">Login</button>
    </form>
  </div>
+ <div>Don't have an account ? <a href="/register">Click here</a></div>
 </div>

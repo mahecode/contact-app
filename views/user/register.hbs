@@ -3,10 +3,9 @@
     <h4>Register</h4>
     {{# if hasErrors }}
       {{# each messages }}
-        <h6>{{ this }}</h6>
+        <div class="error z-depth-3">{{ this }} <a class="close-alert right"><i class="material-icons">cancel</i></a></div>
       {{/each}}
     {{/if}}
-    <br>
     <form action="/user/register" method="POST" class="col s12" id='register'>
       <div class="row">
         <div class="input-field col s6">

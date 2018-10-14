@@ -102,6 +102,7 @@ router.post('/edit/:id', isloggedIn, (req, res, next) =>{
   });
 });
 
+
 router.delete('/delete/:id', isloggedIn , (req, res, next)=>{
   const query = {_id: req.params.id}
   if(!ObjectID.isValid(query)){
