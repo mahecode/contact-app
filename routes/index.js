@@ -5,7 +5,7 @@ var Contact = require('../models/contacts');
 var csrf = require('csurf');
 var csrfProtection = csrf();
 var passport = require('passport');
-var ObjectID = require('mongodb');
+var ObjectID = require('mongodb').ObjectID;
 
 router.use(csrfProtection);
 //mongoose connect
@@ -103,10 +103,10 @@ router.post('/edit/:id', isloggedIn, (req, res, next) =>{
 });
 
 
-router.delete('/delete/:id', isloggedIn , (req, res, next)=>{
+router.get('/delete/:id', isloggedIn, (req, res, next)=>{
   const query = {_id: req.params.id}
-  if(!ObjectID.isValid(query)){
-    return res.status(400).send();
+  if(!ObjectID.isValid(req.params.id)){
+    return res.render('error', {message: "Error didn't found the given id"});
   }
   Contact.findOneAndRemove({
     _id: query,
@@ -116,7 +116,7 @@ router.delete('/delete/:id', isloggedIn , (req, res, next)=>{
       return res.status(400).send();
     }
     console.log('contact removed');
-    res.send(200);
+    res.redirect('/home');
   }).catch((e)=>{
     res.status(400).send();
   });
